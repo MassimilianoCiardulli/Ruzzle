@@ -71,5 +71,19 @@ public class Board {
 		}
 	}
 
+	public List<Pos> getAdiacenti(Pos ultima) {
+		List<Pos> result = new ArrayList<Pos>();
+		for(int r = -1; r <= 1; r++)
+			for(int c = -1; c <= 1; c++) {
+				if(r!=0 || c!=0) { //=if(!(r==0 && c==0))
+					Pos p = new Pos(ultima.getRow() + r, ultima.getCol() + c);
+					if(positions.contains(p)) {
+						result.add(p);
+					}
+				}
+			}
+		return result;
+	}
+
 	
 }
